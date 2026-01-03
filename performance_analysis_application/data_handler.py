@@ -62,8 +62,8 @@ class DataCleaning:
         
 
 class DataHandling:
-    def __init__(self):
-        self.cleaned_data = DataCleaning().remove_noise()
+    def __init__(self, file=DataCleaning().remove_noise()):
+        self.cleaned_data = file
 
         self.cpu95 = self.cleaned_data["CPU"].quantile(0.95)
         self.gpu95 = self.cleaned_data["GPU"].quantile(0.95)
